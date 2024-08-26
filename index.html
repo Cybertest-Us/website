@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/x-icon" href="./img/favicon.svg" />
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Updated font to a more classy option -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     
     <title>CyberTest Us - Pen Testing Experts</title>
     <meta
@@ -19,13 +20,20 @@
     />
     <meta name="author" content="CyberTest Us" />
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Merriweather', serif;
             color: white;
+            background-color: transparent;
             overflow-x: hidden; /* Prevent horizontal scrolling */
-            background-color: transparent; /* No background color, Three.js will cover it */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
@@ -50,24 +58,24 @@
         }
 
         #landing-title {
-            margin-top: 60px;
+            margin-top: 100px;
             margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 2.5em;
             text-align: center;
-            z-index: 101; /* Ensure this is higher than the canvas */
+            z-index: 101;
             color: white;
         }
 
         .cta-button {
-            padding: 10px;
+            padding: 12px 24px;
             margin-top: 20px;
             background-color: #4caf50;
             border: none;
             color: white;
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             text-decoration: none;
             z-index: 101;
         }
@@ -76,16 +84,23 @@
             background-color: #45a049;
         }
 
+        main {
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+            z-index: 101;
+            padding: 20px;
+        }
+
         .services-section, .about-section, .contact-section {
             width: 80%;
-            margin-top: 50px;
+            margin: 50px auto;
             text-align: center;
-            z-index: 101;
             color: white;
         }
 
         .services-section h2, .about-section h2, .contact-section h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
 
@@ -94,12 +109,12 @@
         }
 
         .service-item h3 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 10px;
         }
 
         .service-item p, .about-section p {
-            font-size: 1em;
+            font-size: 1.1em;
             color: #ddd;
             margin-bottom: 20px;
         }
@@ -115,7 +130,7 @@
 
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
             background-color: #1e2129;
             color: #ddd;
@@ -125,14 +140,14 @@
         }
 
         button {
-            padding: 10px;
+            padding: 12px 24px;
             margin-top: 20px;
             background-color: #4caf50;
             border: none;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
         }
 
         button:hover {
@@ -175,25 +190,13 @@
             }
         }
 
-        main {
-            position: relative
-            width: 100%;
-
-        }
-
         canvas.scene {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Ensure the canvas is behind all content */
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 101;
-            padding: 20px;
+            z-index: -1;
         }
     </style>
   <script type="module" crossorigin src="./assets/index-b7d38c76.js"></script>
@@ -207,72 +210,71 @@
     </div>
 
     <!-- Main content with Three.js canvas as background -->
+    <canvas class="scene"></canvas>
+
     <main>
-        <canvas class="scene"></canvas>
+        <div id="landing-title">Welcome to CyberTest Us</div>
+        <a href="#contact" class="cta-button">Contact Us</a>
 
-        <!-- Content overlaying the Three.js scene -->
-        <div class="content-wrapper">
-            <div id="landing-title">Welcome to CyberTest Us</div>
-            <a href="#contact" class="cta-button">Contact Us</a>
+        <!-- About Section -->
+        <section class="about-section">
+            <h2>About CyberTest Us</h2>
+            <p>CyberTest Us is a premier provider of cybersecurity services, specializing in penetration testing. Our mission is to safeguard your digital assets by identifying vulnerabilities before malicious actors can exploit them. With years of experience and a commitment to excellence, we offer tailored solutions to meet the unique needs of businesses of all sizes.</p>
+        </section>
 
-            <!-- About Section -->
-            <section class="about-section">
-                <h2>About CyberTest Us</h2>
-                <p>CyberTest Us is a premier provider of cybersecurity services, specializing in penetration testing. Our mission is to safeguard your digital assets by identifying vulnerabilities before malicious actors can exploit them. With years of experience and a commitment to excellence, we offer tailored solutions to meet the unique needs of businesses of all sizes.</p>
-            </section>
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2>Our Services</h2>
 
-            <!-- Services Section -->
-            <section class="services-section">
-                <h2>Our Services</h2>
+            <div class="service-item">
+                <h3>Network Penetration Testing</h3>
+                <p>Our network penetration testing services evaluate the security of your network infrastructure by identifying vulnerabilities in your systems, servers, and network devices. We simulate real-world attacks to ensure your defenses are robust against unauthorized access and data breaches.</p>
+            </div>
 
-                <div class="service-item">
-                    <h3>Network Penetration Testing</h3>
-                    <p>Our network penetration testing services evaluate the security of your network infrastructure by identifying vulnerabilities in your systems, servers, and network devices. We simulate real-world attacks to ensure your defenses are robust against unauthorized access and data breaches.</p>
+            <div class="service-item">
+                <h3>Web Application Penetration Testing</h3>
+                <p>We conduct thorough assessments of your web applications to uncover security weaknesses that could be exploited by attackers. Our testing includes SQL injection, cross-site scripting (XSS), and other common vulnerabilities to help you fortify your applications.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>Mobile Application Penetration Testing</h3>
+                <p>Our mobile app penetration testing services help you identify and mitigate security risks in your Android and iOS applications. We assess your apps for security flaws that could lead to unauthorized data access, fraud, and other threats.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>Social Engineering Testing</h3>
+                <p>We test your organization's resilience to social engineering attacks by simulating phishing, pretexting, and other human-based attacks. This helps you understand your staff's susceptibility to manipulation and provides you with insights to improve security awareness.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>Wireless Network Penetration Testing</h3>
+                <p>Our wireless network penetration testing services identify security gaps in your Wi-Fi networks, ensuring they are secure against unauthorized access and attacks. We test for weaknesses in encryption protocols, access controls, and network segmentation.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-
-                <div class="service-item">
-                    <h3>Web Application Penetration Testing</h3>
-                    <p>We conduct thorough assessments of your web applications to uncover security weaknesses that could be exploited by attackers. Our testing includes SQL injection, cross-site scripting (XSS), and other common vulnerabilities to help you fortify your applications.</p>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-
-                <div class="service-item">
-                    <h3>Mobile Application Penetration Testing</h3>
-                    <p>Our mobile app penetration testing services help you identify and mitigate security risks in your Android and iOS applications. We assess your apps for security flaws that could lead to unauthorized data access, fraud, and other threats.</p>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
-
-                <div class="service-item">
-                    <h3>Social Engineering Testing</h3>
-                    <p>We test your organization's resilience to social engineering attacks by simulating phishing, pretexting, and other human-based attacks. This helps you understand your staff's susceptibility to manipulation and provides you with insights to improve security awareness.</p>
-                </div>
-
-                <div class="service-item">
-                    <h3>Wireless Network Penetration Testing</h3>
-                    <p>Our wireless network penetration testing services identify security gaps in your Wi-Fi networks, ensuring they are secure against unauthorized access and attacks. We test for weaknesses in encryption protocols, access controls, and network segmentation.</p>
-                </div>
-            </section>
-
-            <!-- Contact Form -->
-            <section id="contact" class="contact-section">
-                <h2>Contact Us</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
-                <p id="status"></p>
-            </section>
-        </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="status"></p>
+        </section>
     </main>
+
+    <!-- Social Links -->
 
 
     <script>
